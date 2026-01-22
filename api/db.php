@@ -26,7 +26,7 @@ class DB{
                 $sql .= $arg[1];
             }
 
-            // echo $sql;
+            //echo $sql;
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
     function find($id){
@@ -39,7 +39,7 @@ class DB{
             $sql .= " WHERE `id`='{$id}'";
         }
             
-            // echo $sql;
+            //echo $sql;
 
         return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
@@ -54,7 +54,7 @@ class DB{
             $sql="INSERT INTO $this->table (`".join("`,`",$cols)."`) VALUES('".join("','",$array)."')";
         }
 
-        // echo $sql;
+        //echo $sql;
         return $this->pdo->exec($sql);
 
     }
@@ -85,7 +85,7 @@ class DB{
                 $sql .= $arg[1];
             }
 
-            // echo $sql;
+            //echo $sql;
 
         return $this->pdo->query($sql)->fetchColumn();
     }
@@ -129,19 +129,7 @@ function to($url){
 }
 
 function q($sql){
-    $dsn="mysql:host=localhost;charset=utf8;dbname=db03";
+    $dsn="mysql:host=localhost;charset=utf8;dbname=db12";
     $pdo=new PDO($dsn,'root','');
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-}
-
-if(!isset($_SESSION['total'])){
-    $today=$Total->find(['date'=>date("Y-m-d")]);
-    if(empty($today)){
-        $Total->save(['date'=>date("Y-m-d"),'total'=>1]);
-    }else{
-        $today['total']=$today['total']+1;
-        $Total->save($today);
-
-    }
-    $_SESSION['total']=1;
 }
