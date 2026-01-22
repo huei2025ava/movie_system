@@ -1,8 +1,8 @@
 ﻿<?php include_once "./api/db.php";?>
-<?php 
+<?php
 if (isset($_POST['acc'])) {
     if ($_POST['add'] == 'admin' && $_POST['pw'] == '1234') {
-        $_SESSION['login']=1;
+        $_SESSION['login'] = 1;
     } else {
         echo "<script>alert('帳號或密碼錯誤')</script>";
     }
@@ -16,9 +16,10 @@ if (isset($_POST['acc'])) {
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>影城</title>
-    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="./css/css.css">
     <link href="css/s2.css" rel="stylesheet" type="text/css">
-    <script src="jss/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery-1.9.1.min.js"></script>
+
 </head>
 
 <body>
@@ -34,16 +35,15 @@ if (isset($_POST['acc'])) {
             </marquee>
         </div>
         <div id="mm">
-            <?php 
-  $do=$_GET['do']??'main';
-  $file="./back/".$do.".php";
-  if(file_exists($file)){
-    include $file;
-  }else{
-    include "./back/main.php";
-  }
-
-  ?>
+            <?php
+              $do = $_GET['do'] ?? 'main';
+              $file = "./back/".$do.".php";
+              if (file_exists($file)) {
+                  include $file;
+              } else {
+                  include "./back/main.php";
+              }          
+            ?>
         </div>
         <div id="bo"> ©Copyright 2010~2014 ABC影城 版權所有 </div>
     </div>
