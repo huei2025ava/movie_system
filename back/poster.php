@@ -19,7 +19,7 @@
                 <img src="./upload/<?= $poster['img'] ?>" style="width:60px;height:80;">
             </div>
             <div class='ct' style='width:25%'>
-                <input type="text" name="name" value="<?=$poster['name'];?>">
+                <input type="text" name="name[]" value="<?=$poster['name'];?>">
             </div>
             <div class="ct" style='width:25%'>
                 <input type="button" value="往上">
